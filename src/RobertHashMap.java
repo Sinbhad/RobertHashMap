@@ -50,7 +50,7 @@ public class RobertHashMap {
     int fakeFNV(String key){
         int hash = 0;
         for(int i = 0; i < key.length(); i++){
-            hash ^= (int) key.charAt(i) * smallPrime;
+            hash ^= ((int) key.charAt(i) * smallPrime);
             hash *= largePrime;
         }
         return Math.abs(hash % this.data.length);
@@ -58,15 +58,15 @@ public class RobertHashMap {
 
 
     public void put(String key, String value) {
-        if ((double) size / data.length >= 0.75) {
-            dynamicResize();
-        }
         int hashIndex = hashSwap(key);
         System.out.println("Adding Key Value pair " + key + ": " + value + " at index " + hashIndex);
         if (data[hashIndex] == null) {
             data[hashIndex] = new RobertLinkedList();
         } else {
             this.collisions++;
+            if(this.collisions >= 5){
+                dynamicResize();
+            }
         }
         data[hashIndex].add(key, value);
         size++;
