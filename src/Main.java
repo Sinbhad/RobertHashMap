@@ -1,40 +1,72 @@
 void main(){
-    RobertHashMap rib = new RobertHashMap();
+    RobertHashMap rib = new RobertHashMap(10, 0);
+    testHash(rib);
 
-    rib.put("key", "value");
-    rib.put("key2", "value2");
-    rib.put("key3", "value3");
-    rib.put("key4", "value4");
-    rib.put("key5", "value5");
+    RobertHashMap rib2 = new RobertHashMap(10, 1);
+    testHash(rib2);
 
-    System.out.println(rib.getSize());
+    RobertHashMap rib3 = new RobertHashMap(10, 2);
+    testHash(rib3);
 
-    rib.put("key6", "value6");
-    rib.put("key7", "value7");
-    rib.put("key8", "value8");
-    rib.put("key9", "value9");
-    rib.put("key10", "value10");
-    rib.put("key11", "value11");
-    rib.put("key12", "value12");
-    rib.put("key13", "value13");
+    RobertHashMap rib4 = new RobertHashMap(10, 3);
+    testHash(rib4);
 
-    System.out.println(rib.getSize());
 
-    if(rib.containsKey("key13")) System.out.println("Key exists");
 
-    rib.removeKey("key13");
+    System.out.println("\n\n\nExclusive or of a and b :"+ xor('a','b'));
+    System.out.println("And of a and b :" + and('a','b'));
+    System.out.println("Or of a and b :" + or('a','b'));
 
-    if(rib.containsKey("key13")) System.out.println("Key exists");
+
+    }
+
+private int xor(char x, char y){
+    return (int)x ^ (int)y;
+}
+
+private int and(char x, char y){
+    return (int) x & (int) y;
+}
+
+private int or(char x, char y){
+    return  (int) x | (int) y;
+}
+
+private void testHash(RobertHashMap hashMap){
+    hashMap.put("key1", "value1");
+    hashMap.put("key2", "value2");
+    hashMap.put("key3", "value3");
+    hashMap.put("key4", "value4");
+    hashMap.put("key5", "value5");
+
+    System.out.println("Current size of HashMap " + hashMap.getSize());
+
+    hashMap.put("key6", "value6");
+    hashMap.put("key7", "value7");
+    hashMap.put("key8", "value8");
+    hashMap.put("key9", "value9");
+    hashMap.put("key10", "value10");
+    hashMap.put("key11", "value11");
+    hashMap.put("key12", "value12");
+    hashMap.put("key13", "value13");
+
+    System.out.println("Current size of HashMap " + hashMap.getSize());
+
+    if(hashMap.containsKey("key13")) System.out.println("Key exists");
+
+    hashMap.removeKey("key13");
+
+    if(hashMap.containsKey("key13")) System.out.println("Key exists");
     else System.out.println("Key does not exist");
 
-    if(rib.containsValue("value")) System.out.println("value exists");
+    if(hashMap.containsValue("value")) System.out.println("Value exists");
 
-    rib.removeKey("key");
+    hashMap.removeKey("key1");
 
-    if(rib.containsValue("value")) System.out.println("value exists");
+    if(hashMap.containsValue("value1")) System.out.println("value exists");
     else System.out.println("value does not exist");
 
-    System.out.println(rib.getSize());
+    System.out.println("Size of HashMap " + hashMap.getSize());
 
-    System.out.println(rib.getCollisions());
+    System.out.println("Number of Collisions " + hashMap.getCollisions() + "\n\n\n\n");
 }
