@@ -62,7 +62,7 @@ public class RobertHashMap {
             dynamicResize();
         }
         int hashIndex = hashSwap(key);
-        System.out.println("Adding Key Value pair at index " + hashIndex);
+        System.out.println("Adding Key Value pair " + key + ": " + value + " at index " + hashIndex);
         if (data[hashIndex] == null) {
             data[hashIndex] = new RobertLinkedList();
         } else {

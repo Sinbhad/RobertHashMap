@@ -1,13 +1,17 @@
 void main(){
+    System.out.println("Using dumb hash function\n");
     RobertHashMap rib = new RobertHashMap(10, 0);
     testHash(rib);
 
+    System.out.println("Using division hash function\n");
     RobertHashMap rib2 = new RobertHashMap(10, 1);
     testHash(rib2);
 
+    System.out.println("Using moving hash function\n");
     RobertHashMap rib3 = new RobertHashMap(10, 2);
     testHash(rib3);
 
+    System.out.println("Using fake FNV hash function\n");
     RobertHashMap rib4 = new RobertHashMap(10, 3);
     testHash(rib4);
 
@@ -33,38 +37,45 @@ private int or(char x, char y){
 }
 
 private void testHash(RobertHashMap hashMap){
-    hashMap.put("key1", "value1");
-    hashMap.put("key2", "value2");
-    hashMap.put("key3", "value3");
-    hashMap.put("key4", "value4");
-    hashMap.put("key5", "value5");
+    hashMap.put("Byron", "Hoy");
+    hashMap.put("Robert", "Poley");
+    hashMap.put("Westley", "Ney");
+    hashMap.put("Jeremiah", "Bullfrog");
+    hashMap.put("Andrew", "Discord");
 
-    System.out.println("Current size of HashMap " + hashMap.getSize());
+    System.out.println("\nCurrent size of HashMap " + hashMap.getSize() + "\n");
 
-    hashMap.put("key6", "value6");
-    hashMap.put("key7", "value7");
-    hashMap.put("key8", "value8");
-    hashMap.put("key9", "value9");
-    hashMap.put("key10", "value10");
-    hashMap.put("key11", "value11");
-    hashMap.put("key12", "value12");
-    hashMap.put("key13", "value13");
+    hashMap.put("Jenna", "Miller");
+    hashMap.put("Joegre", "Mezzatesta");
+    hashMap.put("Marc", "Motta");
+    hashMap.put("Timothy", "Le");
+    hashMap.put("Pekhed", "22");
+    hashMap.put("Burger", "King");
+    hashMap.put("Tim", "Scott");
+    hashMap.put("Steven", "Morris");
 
-    System.out.println("Current size of HashMap " + hashMap.getSize());
+    System.out.println("\nCurrent size of HashMap " + hashMap.getSize() + "\n");
 
-    if(hashMap.containsKey("key13")) System.out.println("Key exists");
+    System.out.println("Checking if key 'Jenna' exists");
+    if(hashMap.containsKey("Jenna")) System.out.println("Key 'Jenna' exists");
 
-    hashMap.removeKey("key13");
+    System.out.println("Removing key 'Jenna'\n");
+    hashMap.removeKey("Jenna");
 
-    if(hashMap.containsKey("key13")) System.out.println("Key exists");
-    else System.out.println("Key does not exist");
+    System.out.println("Checking if key 'Jenna' exists");
+    if(hashMap.containsKey("Jenna")) System.out.println("Key 'Jenna' exists\n");
+    else System.out.println("Key 'Jenna' exist\n");
 
-    if(hashMap.containsValue("value")) System.out.println("Value exists");
+    System.out.println("Checking if value 'Miller' exists");
+    if(hashMap.containsValue("Miller")) System.out.println("Value 'Miller' exists\n");
+    else System.out.println("Value 'Miller' does not exist\n");
 
-    hashMap.removeKey("key1");
+    System.out.println("Removing key 'Byron'\n");
+    hashMap.removeKey("Byron");
 
-    if(hashMap.containsValue("value1")) System.out.println("value exists");
-    else System.out.println("value does not exist");
+    System.out.println("Checking if value 'Byron' exists");
+    if(hashMap.containsValue("Byron")) System.out.println("value exists\n");
+    else System.out.println("Value Byron does not exist\n");
 
     System.out.println("Size of HashMap " + hashMap.getSize());
 
