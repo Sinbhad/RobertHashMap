@@ -20,16 +20,6 @@ public class RobertHashMap {
         this.size = 0;
         this.collisions = 0;
     }
-
-    private void setHashChoice(int choice){
-        this.choice = choice;
-    }
-
-    private int getHashChoice(){
-        return this.choice;
-    }
-
-
     private int dumbHash(String key) {
         return key.length();
     }
